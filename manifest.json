@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "店小秘 Ozon 自动标题",
+  "version": "1.0.0",
+  "description": "自动读取店小秘 Ozon 编辑页面的标题、标签和属性，调用 AI 生成优化标题并自动回填",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://portal.qwen.ai/*",
+    "https://chat.qwen.ai/*",
+    "https://dashscope.aliyuncs.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.dianxiaomi.com/web/ozonProduct/edit*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

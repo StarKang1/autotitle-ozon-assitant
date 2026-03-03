@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Qwen AI 插件设置</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .hint {
+            margin: 6px 0 12px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #40a9ff;
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .status.success {
+            background-color: #f6ffed;
+            border: 1px solid #b7eb8f;
+            color: #52c41a;
+        }
+        .status.error {
+            background-color: #fff2f0;
+            border: 1px solid #ffccc7;
+            color: #f5222d;
+        }
+    </style>
+</head>
+<body>
+    <h3>Qwen AI 插件设置</h3>
+
+    <div class="hint">
+        说明：在此输入 DashScope/Qwen API Key，用于生成标题、标签与描述。请在阿里云 DashScope 控制台创建并复制 Key。
+    </div>
+    
+    <div class="form-group">
+        <label for="apiKey">Qwen API Key</label>
+        <input type="text" id="apiKey" placeholder="请输入你的 Qwen API Key">
+    </div>
+    
+    <div class="form-group">
+        <label for="region">地域选择</label>
+        <select id="region">
+            <option value="china">中国地域</option>
+            <option value="singapore">新加坡地域</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="logistics">物流方式</label>
+        <select id="logistics">
+            <option value="none">不设置</option>
+            <option value="extra_small">extra small</option>
+        </select>
+    </div>
+    
+    <button id="saveButton">保存设置</button>
+    
+    <div id="status" class="status" style="display: none;"></div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,1230 @@
+{
+  "fields": [
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_0",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_1",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input ant-input-status-success css-1oz1bg8 input-item",
+      "value": "Маска аватара*1",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-item",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_4",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90295",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "90296",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90297",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[3]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90298",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[4]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90299",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[5]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90300",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[6]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90302",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[7]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90303",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[8]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90304",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[9]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90305",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[10]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90306",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[11]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90307",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[12]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90308",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[13]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90309",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[14]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "90310",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[15]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_5",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61704",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61708",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61716",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[3]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61745",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[4]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61746",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[5]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61748",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[6]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61749",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[7]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61751",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[8]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61753",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[9]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61755",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[10]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61756",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[11]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61758",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[12]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61760",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[13]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61762",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[14]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "61763",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[15]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "62325",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[16]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "61906",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/label[17]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28794",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28795",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28796",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[3]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28797",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[4]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28798",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[5]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28799",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[6]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28800",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[7]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28801",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[8]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28802",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[9]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28803",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[10]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28804",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[11]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28805",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[12]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "28806",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[13]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-number",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-number",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23342",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23343",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23344",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[3]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23345",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[4]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23346",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[5]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23348",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[6]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23349",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[7]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23351",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[8]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23352",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[9]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23353",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[10]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23354",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[11]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23355",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[12]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "23357",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[13]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970639576",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[14]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970639577",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[15]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "970696087",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[16]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "970696377",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[17]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970872071",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[18]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970942110",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[19]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971062405",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[20]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971084328",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[21]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971105570",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[22]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971202951",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[23]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971301944",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[24]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971390176",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[25]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971433787",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[26]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972083763",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[27]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972191216",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[28]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972191217",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[29]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972212110",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[30]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972860890",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[31]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25701",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25702",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25704",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[3]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25706",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[4]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25707",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[5]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25708",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[6]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25711",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[7]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25712",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[8]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25713",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[9]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25714",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[10]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25715",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[11]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25717",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[12]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25718",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[13]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25719",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[14]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25720",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[15]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25721",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[16]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25723",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[17]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25724",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[18]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25727",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[19]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25728",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[20]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25729",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[21]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "25730",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[22]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970825729",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[23]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970825730",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[24]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "970825731",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[25]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "970825732",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[26]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970825733",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[27]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970825734",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[28]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970884976",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[29]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970892596",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[30]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970892964",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[31]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "970892965",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[32]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "970961253",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[33]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "971202949",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[34]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972860550",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[35]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "972932318",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[36]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_6",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[10]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "43241",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[11]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span checked",
+      "value": "43242",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[11]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/label[2]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input ant-input-status-success css-1oz1bg8 input-number",
+      "value": "1",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_7",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_8",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[14]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-item",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[15]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_9",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[16]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input ant-input-status-success css-1oz1bg8 input-item",
+      "value": "#ЛатекснаяМаска #ХэллоуинКосплей #Avatar3 #Косплей",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[17]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-number",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[18]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-number",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[19]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-number",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/form[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[20]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "sourceUrl",
+      "id": "form_item_sourceList_0_path",
+      "class": "ant-input css-1oz1bg8",
+      "value": "https://mobile.yangkeduo.com/goods.html?goods_id=8",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input ant-input-sm ant-input-status-error css-1oz1bg8",
+      "value": "六一儿童节海洋动物宝宝生日派对聚会装饰小丑鱼鲨鱼海龟纸面具",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_2",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_10",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input css-1oz1bg8 input-item",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "textarea",
+      "name": "",
+      "id": "",
+      "class": "ant-input product-desc-textarea css-1oz1bg8",
+      "value": "品牌:无品牌/无注册商标\n风格:卡通",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[4]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/textarea[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_3",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[4]/div[2]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "rc_select_11",
+      "class": "ant-select-selection-search-input",
+      "value": "",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]/div[2]/div[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-input ant-input-status-success css-1oz1bg8",
+      "value": "15个海洋面具",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[5]/div[2]/div[1]/form[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "on",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[1]/div[1]/div[1]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "on",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[1]/div[1]/div[2]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "checkbox-input checkbox-span",
+      "value": "on",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[1]/div[1]/div[3]/label[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-full! g-form-component",
+      "value": "1832471265635",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-100! g-form-component",
+      "value": "18.16",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-100! g-form-component",
+      "value": "19.2",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-60! g-form-component",
+      "value": "0",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-60! ml-4 g-form-component",
+      "value": "0",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[2]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-60! ml-4 g-form-component",
+      "value": "0",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[3]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "w-100! g-form-component",
+      "value": "0",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/section[2]/table[1]/tbody[1]/tr[1]/td[8]/div[1]/div[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "",
+      "class": "ant-checkbox-input",
+      "value": "on",
+      "xpath": "/html/body/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[8]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/label[1]/span[1]/input[1]"
+    },
+    {
+      "tag": "input",
+      "name": "",
+      "id": "localFileUploadInp",
+      "class": "",
+      "value": "",
+      "xpath": "/html/body/div[2]/input[1]"
+    }
+  ],
+  "titleField": "not found",
+  "description": ""
+}
