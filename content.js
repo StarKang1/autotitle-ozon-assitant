@@ -1,4 +1,6 @@
 // Ozon 自动标题与标签生成插件（content script）
+console.log('妙手 Ozon 自动标题插件已加载');
+console.log('当前页面URL:', window.location.href);
 
 // ===== 配置项 =====
 const CONFIG = {
@@ -64,65 +66,92 @@ function retry(fn, retries = 3, delay = 1000) {
   });
 }
 
+// 缓存DOM元素，避免重复查找
+const DOMCache = {
+  titleInput: null,
+  tagsInput: null,
+  colorInputs: null,
+  descriptionElements: null,
+  checkedCheckboxes: null,
+  sourceUrlInput: null,
+  lastCacheTime: 0,
+  cacheExpiry: 3000 // 缓存有效期3秒
+};
+
+// 检查缓存是否有效
+function isCacheValid() {
+  return Date.now() - DOMCache.lastCacheTime < DOMCache.cacheExpiry;
+}
+
+// 刷新DOM缓存
+function refreshDOMCache() {
+  DOMCache.titleInput = document.querySelector(CONFIG.selectors.title);
+  DOMCache.tagsInput = findTagsInput();
+  DOMCache.colorInputs = findColorNameInputs();
+  DOMCache.descriptionElements = document.querySelectorAll('textarea, [contenteditable="true"]');
+  DOMCache.checkedCheckboxes = document.querySelectorAll('input.checkbox-input.checkbox-span.checked');
+  DOMCache.sourceUrlInput = document.querySelector('input[name="sourceUrl"]');
+  DOMCache.lastCacheTime = Date.now();
+  console.log('DOM缓存已刷新');
+}
+
 // 读取 DOM 元素
 async function readDOM() {
-    // 读取关键字/标签
-    const tagsInput = findTagsInput();
-    let keywords = '';
-    if (tagsInput && tagsInput.value) {
-      keywords = tagsInput.value;
+  // 刷新DOM缓存
+  if (!isCacheValid()) {
+    refreshDOMCache();
+  }
+
+  // 读取关键字/标签
+  let keywords = '';
+  if (DOMCache.tagsInput && DOMCache.tagsInput.value) {
+    keywords = DOMCache.tagsInput.value;
+  }
+
+  // 如果找不到关键字字段，尝试从其他地方获取
+  if (!keywords) {
+    // 尝试从标题中获取关键字
+    if (DOMCache.titleInput && DOMCache.titleInput.value) {
+      keywords = DOMCache.titleInput.value;
+      console.log('从标题中获取关键字:', keywords);
+    } else {
+      // 使用默认关键字
+      keywords = '默认关键字';
+      console.log('使用默认关键字:', keywords);
     }
+  }
 
-    // 如果找不到关键字字段，尝试从其他地方获取
-    if (!keywords) {
-      // 尝试从标题中获取关键字
-      const titleInput = document.querySelector(CONFIG.selectors.title);
-      if (titleInput && titleInput.value) {
-        keywords = titleInput.value;
-        console.log('从标题中获取关键字:', keywords);
-      } else {
-        // 使用默认关键字
-        keywords = '默认关键字';
-        console.log('使用默认关键字:', keywords);
-      }
+  // 读取产品标题
+  const productTitle = DOMCache.titleInput ? DOMCache.titleInput.value : '';
+
+  // 读取产品描述
+  let productDescription = '';
+  DOMCache.descriptionElements.forEach((element) => {
+    if (element.value || element.innerText) {
+      productDescription = element.value || element.innerText;
     }
+  });
 
-    // 读取产品标题
-    const titleInput = document.querySelector(CONFIG.selectors.title);
-    const productTitle = titleInput ? titleInput.value : '';
+  // 读取选中的属性（推荐）
+  const attributes = Array.from(DOMCache.checkedCheckboxes).map((checkbox) => checkbox.value);
 
-    // 读取产品描述
-    let productDescription = '';
-    const descriptionElements = document.querySelectorAll('textarea, [contenteditable="true"]');
-    descriptionElements.forEach((element) => {
-      if (element.value || element.innerText) {
-        productDescription = element.value || element.innerText;
-      }
-    });
+  // 读取商品来源链接（可选）
+  const sourceUrl = DOMCache.sourceUrlInput ? DOMCache.sourceUrlInput.value : '';
+  
+  // 读取颜色名称（Название цвета / 颜色名称）
+  let colorName = '';
+  if (DOMCache.colorInputs.length === 0) {
+    // 颜色输入可能延迟渲染，等待后再试
+    await new Promise((resolve) => setTimeout(resolve, 300)); // 减少等待时间
+    DOMCache.colorInputs = findColorNameInputs();
+  }
+  if (DOMCache.colorInputs.length > 0) {
+    const firstInput = DOMCache.colorInputs[0];
+    colorName = 'value' in firstInput ? firstInput.value : firstInput.innerText;
+    console.log('读取到颜色名称:', colorName);
+  }
 
-    // 读取选中的属性（推荐）
-    const checkedCheckboxes = document.querySelectorAll('input.checkbox-input.checkbox-span.checked');
-    const attributes = Array.from(checkedCheckboxes).map((checkbox) => checkbox.value);
-
-    // 读取商品来源链接（可选）
-    const sourceUrlInput = document.querySelector('input[name="sourceUrl"]');
-    const sourceUrl = sourceUrlInput ? sourceUrlInput.value : '';
-    
-    // 读取颜色名称（Название цвета / 颜色名称）
-    let colorName = '';
-    let colorInputs = findColorNameInputs();
-    if (colorInputs.length === 0) {
-      // 颜色输入可能延迟渲染，等待后再试
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      colorInputs = findColorNameInputs();
-    }
-    if (colorInputs.length > 0) {
-      const firstInput = colorInputs[0];
-      colorName = 'value' in firstInput ? firstInput.value : firstInput.innerText;
-      console.log('读取到颜色名称:', colorName);
-    }
-
-    return { keywords, productTitle, productDescription, attributes, sourceUrl, colorName };
+  return { keywords, productTitle, productDescription, attributes, sourceUrl, colorName };
 }
 
 // Qwen AI 授权管理
@@ -272,126 +301,62 @@ function getYandexHotWords() {
 
 // 构建提示词
 function buildPrompt(domData, yandexHotWords) {
-  const hotWordsText = yandexHotWords.length > 0 ? yandexHotWords.join(', ') : '无';
+  // 限制产品信息长度
+  const title = domData.productTitle.substring(0, 100);
+  const description = domData.productDescription.substring(0, 150);
+  const keywords = domData.keywords.substring(0, 100);
+  const attributes = domData.attributes.slice(0, 5).join(', ');
+  const color = domData.colorName || '未指定';
+  const hotWordsText = yandexHotWords.slice(0, 5).join(', ');
 
-  return `你现在是个ozon标题助手，严格参考示例模板与格式输出，结合yandex热词,标题里不能带有 符号：— «»
+  return `Ozon产品优化助手，快速生成俄语内容。
 
-【产品信息】
-当前标题：${domData.productTitle}
-产品描述：${domData.productDescription}
-关键词：${domData.keywords}
-属性：${domData.attributes.join(', ')}
-链接：${domData.sourceUrl}
-颜色名称：${domData.colorName || '未指定'}
+参考Ozon标题示例：
+1、набор инструментов для приготовления глиняного теста из 26 кусочков, детская пластиковая форма
+2、Книжка-раскраска в Деревянный дом, Альбом для рисования Деревянный дом, высокое качество
+3、Альбом для рисования Рисование 3 шт., листов: 48
+4、Набор кистей для моделирования миниатюр
+5、Деревянный корабль для сборки, 3D головоломка сложная, детализированная
 
-【Yandex 热词】
-${hotWordsText}
+产品信息：
+标题：${title}
+描述：${description}
+关键词：${keywords}
+属性：${attributes}
+颜色：${color}
+热词：${hotWordsText}
 
-【示例模板（必须遵循此格式与语气）】
-kЛегкосплавный диск для Toyota RAV4 (Rongfang), 18x7 дюймов, 5x114.3 ET35 D60.1, оригинальный дизайн, комплект 1 шт. 
-
-🇷🇺 Краткое описание
-Стильный легкосплавный диск, разработанный для Toyota RAV4 (включая модели Rongfang/Huatai). Размер 18x7 дюймов, параметры: PCD 5x114.3, вылет ET35, центральное отверстие D60.1. Оригинальный дизайн, соответствует заводским стандартам. Продается поштучно.
-
-🇷🇺 Подробное описание
-🛞 Обновите внешний вид и управляемость вашего Toyota RAV4 с этим оригинальным диском!
-
-Этот легкосплавный диск специально создан с учетом дизайна и технических требований для Toyota RAV4, включая версии Rongfang и Huatai. Он не только придаст вашему автомобилю современный и стильный облик, но и благодаря точному соответствию параметрам обеспечит безопасность и комфорт вождения.
-
-⭐ Ключевые характеристики:
-
-📐 Точные параметры для идеальной посадки:
-
-Диаметр и ширина: 18 x 7 дюймов — популярный и сбалансированный размер для RAV4.
-
-PCD (разболтовка): 5 x 114.3 мм — стандартный для многих моделей Toyota, включая RAV4.
-
-Вылет (ET): ET35 — обеспечивает правильное положение колеса в арке, сохраняя управляемость.
-
-Центральное отверстие (DIA, ЦО): D60.1 мм — точное совпадение со ступицей Toyota, что важно для правильной центровки.
-
-🛡️ Надежность и совместимость:
-
-Оригинальный дизайн: Внешний вид соответствует заводскому стилю, что позволяет сохранить или улучшить экстерьер автомобиля.
-
-Проверенная совместимость: Подходит для Toyota RAV4 (также может подойти для других моделей Toyota с аналогичными параметрами — рекомендуется уточнить).
-
-Продается поштучно: Вы можете купить один диск для замены или полный комплект (4 шт.) для полного обновления.
-
-💡 Важная информация для покупателя:
-
-Перед покупкой рекомендуется визуально сверить дизайн диска с нужной вам моделью.
-
-Для установки необходимы стандартные шины соответствующего размера (например, 225/60 R18).
-
-Для гарантии идеальной посадки и балансировки установку рекомендуется проводить в специализированном сервисе.
-
-📦 Комплектация
-
-Легкосплавный диск (колесный обод) для Toyota RAV4 × 1 шт.
-
-Стандартные крепежные болты/гайки и колпак ступицы в комплект НЕ входят и приобретаются отдельно.
-
-🔍 Ключевые слова
-диск для Toyota RAV4 18 дюймов
-колесный диск 5x114.3 ET35
-легкосплавный диск RAV4 Rongfang
-оригинальный диск Toyota
-диск D60.1
-колесо на RAV4 18
-запасной диск
-комплект дисков RAV4
-PCD 5/114.3
-ступичный размер 60.1
-
-🏷 Хэштеги
-#ToyotaRAV4 #ДискиДляToyota #ЛегкосплавныеДиски #RAV4 #КолесныеДиски #ТюнингАвто #Автозапчасти #Диски18 #5x1143 #АвтоАксессуары
-
-【生成模板】
-请严格按照以下格式生成内容：
-
+生成格式：
 ===标题===
-[优化后的俄语产品标题]
-（短版：[短版俄语产品标题]）
+[优化后的俄语标题，简洁直接]
+（短版：[短版标题]）
 
 ---
 
-🇷🇺 Краткое описание
+🇷🇺 简短描述
 [简短描述]
 
 ---
 
-🇷🇺 Подробное описание
-[详细描述，包含特点、优势等]
-
----
-
-🔍 Ключевые слова
-[关键词列表，每行一个]
-
----
-
-🏷 Хэштеги
-[10个相关的俄语标签，每个标签以 # 开头，用空格分隔]
-
-===标签===
-[10个相关的俄语标签，每个标签以 # 开头，用空格分隔]
-
-===描述===
+🇷🇺 详细描述
 [详细描述]
 
-请确保生成的内容：
-1. 标题包含主要关键词，吸引人且符合 Ozon 平台规范
-2. 标题里不能带有符号：— «»
-3. 标签与产品高度相关，有助于搜索和分类
-4. 描述详细准确，突出产品特点和优势
-5. 所有内容均为俄语
-6. 结合 Yandex 热词，提高搜索排名
-7. 标题禁止出现原创性、编造或不存在的俄语词汇，只能使用常见、可理解、标准俄语表达
-8. 标题采用简短表达，避免过长
-9. 禁止引入与输入信息无关的品牌/IP/角色名；若信息不足，用通用描述，不要猜测
-10. 标题和描述必须围绕【当前标题/关键词/属性】中的核心名词，不得跑题
-11. 标题中禁止出现词语：Оригинальные
+---
+
+🔍 关键词
+[关键词列表]
+
+---
+
+🏷 标签
+[10个全新的俄语标签，#开头]
+
+要求：
+1. 标题含关键词，简洁直接
+2. 快速生成，不要冗长
+3. 全俄语
+4. 标准俄语表达
+5. 标题简短，信息丰富
 `;
 }
 
@@ -426,17 +391,17 @@ function parseAiResponse(text) {
       }
     }
 
-    // 解析简短描述
-    const shortDescMatch = text.match(/🇷🇺 Краткое описание\s*([\s\S]*?)---/i);
+    // 解析简短描述（支持新旧格式）
+    const shortDescMatch = text.match(/🇷🇺 (Краткое описание|简短描述)\s*([\s\S]*?)---/i);
     if (shortDescMatch) {
-      result.short_description = shortDescMatch[1].trim();
+      result.short_description = shortDescMatch[2].trim();
       console.log('解析到简短描述:', result.short_description.substring(0, 100) + '...');
     }
 
-    // 解析详细描述
-    const longDescMatch = text.match(/🇷🇺 Подробное описание\s*([\s\S]*?)---\s*🔍 Ключевые слова/i);
+    // 解析详细描述（支持新旧格式）
+    const longDescMatch = text.match(/🇷🇺 (Подробное описание|详细描述)\s*([\s\S]*?)---\s*🔍 (Ключевые слова|关键词)/i);
     if (longDescMatch) {
-      result.long_description = longDescMatch[1].trim();
+      result.long_description = longDescMatch[2].trim();
       console.log('解析到详细描述:', result.long_description.substring(0, 100) + '...');
     } else {
       // 回退到旧格式解析
@@ -447,10 +412,10 @@ function parseAiResponse(text) {
       }
     }
 
-    // 解析关键词
-    const keywordsMatch = text.match(/🔍 Ключевые слова\s*([\s\S]*?)---\s*🏷 Хэштеги/i);
+    // 解析关键词（支持新旧格式）
+    const keywordsMatch = text.match(/🔍 (Ключевые слова|关键词)\s*([\s\S]*?)---\s*🏷 (Хэштеги|标签)/i);
     if (keywordsMatch) {
-      const keywordsText = keywordsMatch[1].trim();
+      const keywordsText = keywordsMatch[2].trim();
       result.keywords = keywordsText.split('\n').filter(word => word.trim()).slice(0, 10);
       console.log('解析到关键词:', result.keywords);
     } else if (!result.keywords.length) {
@@ -465,20 +430,46 @@ function parseAiResponse(text) {
       }
     }
 
-    // 解析标签（新格式）
-    const hashtagsMatch = text.match(/🏷 Хэштеги\s*([\s\S]*?)(===标签===|$)/i);
+    // 解析标签（支持多种格式）
+    let hashtagsText = '';
+    
+    // 尝试解析新格式（带🏷符号）
+    const hashtagsMatch = text.match(/🏷 (Хэштеги|标签)\s*([\s\S]*?)(===标签===|$|🔍|🇷🇺)/i);
     if (hashtagsMatch) {
-      const hashtagsText = hashtagsMatch[1].trim();
-      result.hashtags = hashtagsText.match(/#[^\s#]+/g) || [];
-      console.log('解析到标签（新格式）:', result.hashtags);
+      hashtagsText = hashtagsMatch[2].trim();
     } else {
-      // 回退到旧格式解析
-      const oldTagsMatch = text.match(/===标签===\s*([\s\S]*?)===描述===/i);
+      // 尝试解析旧格式（===标签===）
+      const oldTagsMatch = text.match(/===标签===\s*([\s\S]*?)(===描述===|$)/i);
       if (oldTagsMatch) {
-        const oldTagsText = oldTagsMatch[1].trim();
-        result.hashtags = oldTagsText.match(/#[^\s#]+/g) || [];
-        console.log('解析到标签（旧格式）:', result.hashtags);
+        hashtagsText = oldTagsMatch[1].trim();
+      } else {
+        // 尝试从整个文本中提取标签
+        const allHashtags = text.match(/#[^\s#]+/g) || [];
+        if (allHashtags.length > 0) {
+          hashtagsText = allHashtags.join(' ');
+        }
       }
+    }
+    
+    // 提取标签
+    if (hashtagsText) {
+      result.hashtags = hashtagsText.match(/#[^\s#]+/g) || [];
+      console.log('解析到标签:', result.hashtags);
+    } else {
+      // 如果没有解析到标签，生成默认标签
+      console.log('未解析到标签，生成默认标签');
+      result.hashtags = [
+        '#Ozon',
+        '#产品优化',
+        '#俄语标题',
+        '#跨境电商',
+        '#外贸',
+        '#电商运营',
+        '#产品描述',
+        '#关键词优化',
+        '#电商销售',
+        '#海外市场'
+      ];
     }
 
     // 如果没有解析到内容，使用模拟数据
@@ -509,8 +500,60 @@ function parseAiResponse(text) {
   }
 }
 
+// 生成缓存键的哈希函数
+function generateCacheKey(prompt) {
+  let hash = 0;
+  for (let i = 0; i < prompt.length; i++) {
+    const char = prompt.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return 'qwen_ai_cache_' + hash.toString(36);
+}
+
+// 检查缓存
+function checkCache(prompt) {
+  const cacheKey = generateCacheKey(prompt);
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      const now = Date.now();
+      // 缓存有效期为24小时
+      if (now - parsed.timestamp < 24 * 60 * 60 * 1000) {
+        console.log('使用缓存的 AI 响应');
+        return parsed.data;
+      } else {
+        // 缓存过期，删除
+        localStorage.removeItem(cacheKey);
+      }
+    } catch (error) {
+      console.error('解析缓存数据失败:', error);
+      localStorage.removeItem(cacheKey);
+    }
+  }
+  return null;
+}
+
+// 更新缓存
+function updateCache(prompt, data) {
+  const cacheKey = generateCacheKey(prompt);
+  const cacheData = {
+    timestamp: Date.now(),
+    data: data
+  };
+  localStorage.setItem(cacheKey, JSON.stringify(cacheData));
+  console.log('AI 响应已缓存');
+}
+
 // 调用 Qwen AI 接口（通过后台脚本）
 async function callQwenAI(prompt) {
+  // 检查缓存
+  const cachedData = checkCache(prompt);
+  if (cachedData) {
+    return cachedData;
+  }
+
   return new Promise((resolve, reject) => {
     console.log('通过后台脚本调用 Qwen AI，提示词:', prompt.substring(0, 100) + '...');
     
@@ -540,6 +583,8 @@ async function callQwenAI(prompt) {
           }
           
           if (response.success) {
+            // 更新缓存
+            updateCache(prompt, response.result);
             resolve(response.result);
           } else {
             reject(new Error(response.error || 'Qwen AI 调用失败'));
@@ -583,34 +628,52 @@ function fillTags(tags) {
       return;
     }
 
-    const tagsText = tags.join(' ');
+    // 移除重复标签
+    const uniqueTags = [...new Set(tags)];
+    const tagsText = uniqueTags.join(' ');
     simulateInputText(tagInput, tagsText);
     resolve();
   });
 }
 
 function findTagsInput() {
+  // 1) 快速查找：先检查DOM缓存
+  if (DOMCache.tagsInput) {
+    return DOMCache.tagsInput;
+  }
+
   const inputs = Array.from(document.querySelectorAll(CONFIG.selectors.tagsInputs));
-  // 1) 已包含 # 的输入框优先
+  
+  // 2) 已包含 # 的输入框优先
   let tagInput = inputs.find((input) => (input.value || '').includes('#'));
   if (tagInput) {
+    DOMCache.tagsInput = tagInput;
     return tagInput;
   }
 
-  // 2) 根据标签文本定位
-  const labelNodes = Array.from(document.querySelectorAll('label, div, span'))
-    .filter((el) => el.textContent && (el.textContent.includes('标签') || el.textContent.includes('Tags') || el.textContent.includes('Хэштеги') || el.textContent.includes('Теги')));
+  // 3) 根据标签文本定位（减少遍历深度）
+  const tagKeywords = ['标签', 'Tags', 'Хэштеги', 'Теги'];
+  const labelNodes = document.querySelectorAll('label, div, span');
+  
   for (const label of labelNodes) {
-    const formRow = label.closest('.ant-form-item-row') || label.closest('.ant-form-item') || label.closest('div');
-    if (formRow) {
-      const candidate = formRow.querySelector('input[type="text"], textarea');
-      if (candidate) {
-        return candidate;
+    const text = label.textContent || '';
+    if (tagKeywords.some(keyword => text.includes(keyword))) {
+      // 从当前标签向上查找容器
+      let container = label.parentElement;
+      let depth = 0;
+      while (container && depth < 3) { // 减少遍历深度
+        const candidate = container.querySelector('input[type="text"], textarea');
+        if (candidate) {
+          DOMCache.tagsInput = candidate;
+          return candidate;
+        }
+        container = container.parentElement;
+        depth++;
       }
     }
   }
 
-  // 3) 兜底：找第一个可编辑的输入框（排除标题/型号/颜色）
+  // 4) 兜底：找第一个可编辑的输入框（排除标题/型号/颜色）
   tagInput = inputs.find((input) => {
     if (input.disabled || input.readOnly) {
       return false;
@@ -623,6 +686,11 @@ function findTagsInput() {
     }
     return true;
   });
+  
+  if (tagInput) {
+    DOMCache.tagsInput = tagInput;
+  }
+  
   return tagInput || null;
 }
 
@@ -838,7 +906,30 @@ function normalizeTitleText(text) {
     .filter(Boolean);
   const firstLine = lines.length > 0 ? lines[0] : String(text).trim();
   const cleaned = removeChineseCharacters(firstLine);
-  return formatRussianTitle(cleaned);
+  const uniqueTitle = removeDuplicateWords(cleaned);
+  return formatRussianTitle(uniqueTitle);
+}
+
+// 移除标题中的重复词
+function removeDuplicateWords(text) {
+  if (!text) {
+    return '';
+  }
+  
+  // 按空格分割单词
+  const words = text.split(/\s+/);
+  const uniqueWords = [];
+  const seen = new Set();
+  
+  // 遍历单词，只添加第一次出现的单词
+  for (const word of words) {
+    if (!seen.has(word)) {
+      seen.add(word);
+      uniqueWords.push(word);
+    }
+  }
+  
+  return uniqueWords.join(' ');
 }
 
 // 根据关键词对俄语标题做轻量断句（逗号/连词）
@@ -852,6 +943,29 @@ function formatRussianTitle(title) {
     .replace(/,\s*,/g, ',')
     .trim();
 
+  // 处理游戏平台名称的分隔
+  const platforms = [
+    'Switch Pro',
+    'PS5',
+    'PS4',
+    'Xbox',
+    'Xbox One',
+    'Xbox Series X',
+    'PS3',
+    'Nintendo Switch',
+    'PC'
+  ];
+  
+  // 为平台名称之间添加逗号
+  let platformPattern = '';
+  platforms.forEach((platform, index) => {
+    if (index > 0) platformPattern += '|';
+    platformPattern += platform.replace(/[+.]/g, '\\$&');
+  });
+  
+  const platformRegex = new RegExp(`(${platformPattern})\s+(${platformPattern})`, 'gi');
+  result = result.replace(platformRegex, '$1, $2');
+
   // 在常见分隔短语前加逗号，避免一长串
   const commaBefore = [
     ' украшение',
@@ -863,8 +977,37 @@ function formatRussianTitle(title) {
     ' хэллоуин',
     ' косплей',
     ' детский костюм',
-    ' для фотосессии'
+    ' для фотосессии',
+    ' жесткий',
+    ' портативный',
+    ' защитный',
+    ' пластиковый',
+    ' металлический',
+    ' качественный',
+    ' недорогой',
+    ' высокого качества'
   ];
+
+  // 为连续的形容词添加逗号
+  let adjectivePattern = '';
+  const adjectives = [
+    'жесткий',
+    'портативный',
+    'защитный',
+    'пластиковый',
+    'металлический',
+    'качественный',
+    'недорогой',
+    'высокого качества'
+  ];
+  
+  adjectives.forEach((adj, index) => {
+    if (index > 0) adjectivePattern += '|';
+    adjectivePattern += adj;
+  });
+  
+  const adjectiveRegex = new RegExp(`(${adjectivePattern})\s+(${adjectivePattern})`, 'gi');
+  result = result.replace(adjectiveRegex, '$1, $2');
 
   commaBefore.forEach((phrase) => {
     const re = new RegExp(`\\s${phrase}`, 'gi');
@@ -875,7 +1018,14 @@ function formatRussianTitle(title) {
   result = result.replace(/,? для дня рождения тематическая вечеринка/gi, ', для дня рождения и тематической вечеринки');
   result = result.replace(/,? карнавал хэллоуин косплей/gi, ', карнавал, хэллоуин, косплей');
 
-  return result.replace(/,\s*,/g, ',').replace(/\s+,/g, ',').trim();
+  // 确保逗号后面有空格
+  result = result.replace(/,([^\s])/g, ', $1');
+  // 移除多余的逗号
+  result = result.replace(/,\s*,/g, ',').replace(/\s+,/g, ',').trim();
+  // 移除开头的逗号
+  result = result.replace(/^,\s*/, '');
+
+  return result;
 }
 
 function containsChinese(text) {
@@ -885,104 +1035,68 @@ function containsChinese(text) {
 // 查找颜色名称输入框
 function findColorNameInputs() {
   const inputs = [];
-  // 优先根据颜色名称表头定位，并在同一表格/模块内找输入框
-  const headerNodes = Array.from(document.querySelectorAll('.sku-main-header-th, th, div, span'))
-    .filter((el) => el.textContent && (el.textContent.includes('颜色名称') || el.textContent.includes('Название цвета')));
-  headerNodes.forEach((header) => {
-    const tableScope =
-      header.closest('table') ||
-      header.closest('thead')?.parentElement ||
-      header.closest('.sku') ||
-      header.closest('.sku-table') ||
-      header.closest('.sku-main');
-
-    const scope = tableScope || header.closest('div');
-    if (!scope) {
-      return;
+  const seen = new Set();
+  
+  // 优先查找包含颜色名称的元素
+  const colorKeywords = ['颜色名称', 'Название цвета'];
+  
+  // 1. 快速查找：直接查找包含颜色名称的标签和对应的输入框
+  const colorElements = document.querySelectorAll('label, div, span');
+  
+  for (const element of colorElements) {
+    const text = element.textContent || '';
+    if (colorKeywords.some(keyword => text.includes(keyword))) {
+      // 从当前元素开始向上查找容器
+      let container = element.parentElement;
+      let depth = 0;
+      while (container && depth < 4) { // 减少遍历深度
+        // 查找容器内的输入框
+        const inputElements = container.querySelectorAll('input[type="text"]');
+        for (const input of inputElements) {
+          // 跳过标题输入框和SKU型号输入框
+          if (CONFIG.selectors.title && input.matches(CONFIG.selectors.title)) {
+            continue;
+          }
+          if (CONFIG.selectors.skuModelTarget && input.matches(CONFIG.selectors.skuModelTarget)) {
+            continue;
+          }
+          // 跳过已添加的输入框
+          if (!seen.has(input)) {
+            seen.add(input);
+            inputs.push(input);
+          }
+        }
+        // 如果找到输入框，停止向上查找
+        if (inputElements.length > 0) {
+          break;
+        }
+        container = container.parentElement;
+        depth++;
+      }
     }
-
-    scope.querySelectorAll('input[type="text"]').forEach((input) => {
+  }
+  
+  // 2. 后备方案：如果没有找到，查找所有文本输入框并过滤
+  if (inputs.length === 0) {
+    const allInputs = document.querySelectorAll('input[type="text"]');
+    for (const input of allInputs) {
+      // 跳过标题输入框和SKU型号输入框
       if (CONFIG.selectors.title && input.matches(CONFIG.selectors.title)) {
-        return;
+        continue;
       }
-      // 移除对 '#' 的检查，允许颜色名称包含 '#'
-      // if ((input.value || '').includes('#')) {
-      //   return;
-      // }
       if (CONFIG.selectors.skuModelTarget && input.matches(CONFIG.selectors.skuModelTarget)) {
-        return;
+        continue;
       }
-      if (!inputs.includes(input)) {
+      // 跳过包含#的输入框（可能是标签输入框）
+      if ((input.value || '').includes('#')) {
+        continue;
+      }
+      if (!seen.has(input)) {
+        seen.add(input);
         inputs.push(input);
       }
-    });
-  });
-
-  const labelNodes = Array.from(document.querySelectorAll('div, label, span'))
-    .filter((el) => el.textContent && (el.textContent.includes('Название цвета') || el.textContent.includes('颜色名称')));
-
-  const seen = new Set();
-
-  labelNodes.forEach((label) => {
-    let container = null;
-    let current = label.parentElement;
-    let depth = 0;
-    while (current && depth < 6) {
-      const found = current.querySelectorAll('input[type="text"]');
-      if (found.length > 0) {
-        container = current;
-        break;
-      }
-      current = current.parentElement;
-      depth += 1;
     }
-
-    if (container) {
-      container.querySelectorAll('input[type="text"]').forEach((input) => {
-        if (CONFIG.selectors.title && input.matches(CONFIG.selectors.title)) {
-          return;
-        }
-        // 移除对 '#' 的检查，允许颜色名称包含 '#'
-        // if ((input.value || '').includes('#')) {
-        //   return;
-        // }
-        if (CONFIG.selectors.skuModelTarget && input.matches(CONFIG.selectors.skuModelTarget)) {
-          return;
-        }
-        if (!seen.has(input)) {
-          seen.add(input);
-          inputs.push(input);
-        }
-      });
-      return;
-    }
-
-    // fallback: 向下查找相邻区域的输入框
-    let sibling = label.parentElement ? label.parentElement.nextElementSibling : null;
-    let steps = 0;
-    while (sibling && steps < 8) {
-      sibling.querySelectorAll('input[type="text"]').forEach((input) => {
-        if (CONFIG.selectors.title && input.matches(CONFIG.selectors.title)) {
-          return;
-        }
-        if ((input.value || '').includes('#')) {
-          return;
-        }
-        if (CONFIG.selectors.skuModelTarget && input.matches(CONFIG.selectors.skuModelTarget)) {
-          return;
-        }
-        if (!seen.has(input)) {
-          seen.add(input);
-          inputs.push(input);
-        }
-      });
-      if (inputs.length > 0) {
-        break;
-      }
-      sibling = sibling.nextElementSibling;
-      steps += 1;
-    }
-  });
+  }
 
   return inputs;
 }
@@ -1125,14 +1239,20 @@ async function fillExtraSmallPackageSize() {
 async function getLogisticsSetting() {
   return new Promise((resolve) => {
     chrome.storage.local.get(['qwenLogistics'], (result) => {
-      resolve(result.qwenLogistics || 'none');
+      resolve(result.qwenLogistics || 'extra_small');
     });
   });
 }
 
 async function fillLogisticsPackageSize(logistics) {
-  if (logistics !== 'extra_small') {
-    return;
+  // 如果没有设置物流方式，默认为extra_small
+  if (!logistics) {
+    logistics = 'extra_small';
+  }
+  
+  // 只处理有效的物流方式
+  if (!['extra_small', 'small', 'budget', 'premium_small', 'premium_big', 'big'].includes(logistics)) {
+    logistics = 'extra_small';
   }
 
   let batchTrigger = null;
@@ -1156,9 +1276,23 @@ async function fillLogisticsPackageSize(logistics) {
   const widthInput = await waitForElement('input[name="packageWidth"]', 8, 200);
   const heightInput = await waitForElement('input[name="packageHeight"]', 8, 200);
   if (lengthInput && widthInput && heightInput) {
-    simulateInputText(lengthInput, '200');
-    simulateInputText(widthInput, '100');
-    simulateInputText(heightInput, '30');
+    if (logistics === 'premium_big') {
+      simulateInputText(lengthInput, '400');
+      simulateInputText(widthInput, '500');
+      simulateInputText(heightInput, '600');
+    } else if (logistics === 'big') {
+      simulateInputText(lengthInput, '300');
+      simulateInputText(widthInput, '400');
+      simulateInputText(heightInput, '500');
+    } else if (logistics === 'small' || logistics === 'budget' || logistics === 'premium_small') {
+      simulateInputText(lengthInput, '300');
+      simulateInputText(widthInput, '200');
+      simulateInputText(heightInput, '50');
+    } else {
+      simulateInputText(lengthInput, '200');
+      simulateInputText(widthInput, '100');
+      simulateInputText(heightInput, '30');
+    }
   }
 
   const sizeDialog = findDialogRoot();
@@ -1186,7 +1320,17 @@ async function fillLogisticsPackageSize(logistics) {
 
   const weightInput = await waitForElement('input[placeholder*="重量"], input[name="packageWeight"], input[name="inputName"]', 8, 200);
   if (weightInput) {
-    simulateInputText(weightInput, '500');
+    if (logistics === 'premium_big') {
+      simulateInputText(weightInput, '10000');
+    } else if (logistics === 'big') {
+      simulateInputText(weightInput, '3000');
+    } else if (logistics === 'premium_small') {
+      simulateInputText(weightInput, '2000');
+    } else if (logistics === 'small' || logistics === 'budget') {
+      simulateInputText(weightInput, '600');
+    } else {
+      simulateInputText(weightInput, '500');
+    }
   }
 
   const weightDialog = findDialogRoot();
@@ -1247,17 +1391,72 @@ async function findModelNameInput() {
   return null;
 }
 
+// 颜色翻译缓存键生成
+function generateColorCacheKey(text) {
+  return 'qwen_color_cache_' + btoa(text).replace(/[^a-zA-Z0-9]/g, '');
+}
+
+// 检查颜色翻译缓存
+function checkColorCache(text) {
+  const cacheKey = generateColorCacheKey(text);
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      const now = Date.now();
+      // 颜色翻译缓存有效期为7天
+      if (now - parsed.timestamp < 7 * 24 * 60 * 60 * 1000) {
+        console.log('使用缓存的颜色翻译');
+        return parsed.translation;
+      } else {
+        localStorage.removeItem(cacheKey);
+      }
+    } catch (error) {
+      console.error('解析颜色缓存失败:', error);
+      localStorage.removeItem(cacheKey);
+    }
+  }
+  return null;
+}
+
+// 更新颜色翻译缓存
+function updateColorCache(text, translation) {
+  const cacheKey = generateColorCacheKey(text);
+  const cacheData = {
+    timestamp: Date.now(),
+    translation: translation
+  };
+  localStorage.setItem(cacheKey, JSON.stringify(cacheData));
+  console.log('颜色翻译已缓存');
+}
+
 async function translateTextToEnglish(text) {
-  const prompt = `Translate the following text to English. Output only the translation, no quotes or extra text.\n\n${text}`;
-  const raw = await callQwenAI(prompt);
-  if (typeof raw !== 'string') {
+  // 检查缓存
+  const cachedTranslation = checkColorCache(text);
+  if (cachedTranslation) {
+    return cachedTranslation;
+  }
+
+  // 使用更简洁的提示词
+  const prompt = `英译：${text}`;
+  try {
+    const raw = await callQwenAI(prompt);
+    if (typeof raw !== 'string') {
+      return text;
+    }
+    const translation = raw
+      .replace(/^"+|"+$/g, '')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean)[0] || text;
+    
+    // 更新缓存
+    updateColorCache(text, translation);
+    return translation;
+  } catch (error) {
+    console.warn('翻译失败，使用原始文本:', error);
     return text;
   }
-  return raw
-    .replace(/^"+|"+$/g, '')
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)[0] || text;
 }
 
 // 优化颜色名称：超过10个字符时自动缩减到10个
@@ -1288,19 +1487,52 @@ function collectChineseColorValues(inputs) {
 }
 
 async function batchTranslateToEnglish(values) {
-  const prompt = `Translate each line to English. Output only translated lines in the same order, one per line. No numbering.\n\n${values.join('\n')}`;
-  const raw = await callQwenAI(prompt);
-  if (typeof raw !== 'string') {
+  // 先检查缓存，只翻译未缓存的颜色
+  const cachedResults = [];
+  const needTranslation = [];
+  const needTranslationIndices = [];
+  
+  values.forEach((value, index) => {
+    const cached = checkColorCache(value);
+    if (cached) {
+      cachedResults[index] = cached;
+    } else {
+      needTranslation.push(value);
+      needTranslationIndices.push(index);
+    }
+  });
+  
+  // 如果所有颜色都已缓存，直接返回
+  if (needTranslation.length === 0) {
+    console.log('所有颜色翻译都已缓存');
+    return cachedResults;
+  }
+  
+  // 只翻译未缓存的颜色
+  const prompt = `Translate each line to English. Output only translated lines in the same order, one per line. No numbering.\n\n${needTranslation.join('\n')}`;
+  try {
+    const raw = await callQwenAI(prompt);
+    if (typeof raw !== 'string') {
+      return values;
+    }
+    const lines = raw
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean);
+    
+    // 填充翻译结果并更新缓存
+    needTranslation.forEach((value, i) => {
+      const translation = lines[i] || value;
+      const originalIndex = needTranslationIndices[i];
+      cachedResults[originalIndex] = translation;
+      updateColorCache(value, translation);
+    });
+    
+    return cachedResults;
+  } catch (error) {
+    console.warn('批量翻译失败，使用原始文本:', error);
     return values;
   }
-  const lines = raw
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean);
-  if (lines.length !== values.length) {
-    return values;
-  }
-  return lines;
 }
 
 // 主流程：先授权 -> 读取 DOM -> 调用 AI -> 回填
@@ -1336,51 +1568,23 @@ async function generateAllContentAndFill() {
 
     // 物流方式：按设置批量填充包装尺寸
     const logisticsSetting = await getLogisticsSetting();
-    await fillLogisticsPackageSize(logisticsSetting);
+    try {
+      await fillLogisticsPackageSize(logisticsSetting);
+    } catch (logisticsError) {
+      console.warn('物流设置失败，继续生成流程:', logisticsError);
+    }
 
-    // 若颜色名称为中文，先翻译成英文并回填（在填充 SKU 前执行）
+    // 直接使用原始颜色名称，不进行翻译
     const colorInputs = findColorNameInputs();
-    const colorItems = collectChineseColorValues(colorInputs);
-    if (colorItems.length > 0) {
-      showNotification('处理中', '正在翻译颜色名称...');
-      try {
-        // 确保至少有一个颜色值需要翻译
-        const sourceValues = colorItems.map((item) => item.value).filter(Boolean);
-        if (sourceValues.length > 0) {
-          console.log('开始翻译颜色名称:', sourceValues);
-          const translatedValues = await batchTranslateToEnglish(sourceValues);
-          
-          // 确保翻译结果有效
-          if (Array.isArray(translatedValues) && translatedValues.length > 0) {
-            colorItems.forEach((item, idx) => {
-              const translated = translatedValues[idx] || item.value;
-              const targetInput = colorInputs[item.index];
-              if (targetInput) {
-                fillColorNameInput(targetInput, translated);
-                console.log('颜色名称已翻译:', item.value, '->', translated);
-              }
-            });
-            // 更新第一个颜色名称回传给提示词
-            domData.colorName = translatedValues[0] || domData.colorName;
-            console.log('颜色名称翻译完成，更新提示词颜色为:', domData.colorName);
-          } else {
-            console.warn('翻译结果无效，使用原始颜色名称');
-            // 即使翻译失败，也更新颜色名称为第一个原始颜色
-            domData.colorName = sourceValues[0] || domData.colorName;
-          }
-        } else {
-          console.warn('无有效颜色值需要翻译');
-        }
-      } catch (translateError) {
-        console.warn('颜色名称翻译失败，使用原始颜色名称:', translateError);
-        // 翻译失败时，使用第一个原始颜色名称
-        if (colorItems.length > 0) {
-          domData.colorName = colorItems[0].value || domData.colorName;
-          console.log('翻译失败，使用原始颜色名称:', domData.colorName);
-        }
+    if (colorInputs.length > 0) {
+      const firstInput = colorInputs[0];
+      const colorName = 'value' in firstInput ? firstInput.value : firstInput.innerText;
+      if (colorName) {
+        domData.colorName = colorName;
+        console.log('使用原始颜色名称:', domData.colorName);
       }
     } else {
-      console.log('未找到需要翻译的中文颜色名称');
+      console.log('未找到颜色名称输入框');
     }
 
     // 填充 SKU 前缀与型号（在颜色翻译后执行）
@@ -1412,7 +1616,7 @@ async function generateAllContentAndFill() {
       checkExtensionContext();
       
       // 检查是否是真实的 AI 响应（不是模拟数据）
-      if (parsedResult && parsedResult.title && parsedResult.hashtags && parsedResult.hashtags.length > 0) {
+      if (parsedResult && parsedResult.title) {
         // 回填内容
         console.log('步骤 4: 回填生成的内容');
         
@@ -1429,10 +1633,13 @@ async function generateAllContentAndFill() {
         
         if (tagsToFill.length > 0) {
           await fillTags(tagsToFill);
+          console.log('标签已成功回填:', tagsToFill);
+        } else {
+          console.log('未解析到标签，跳过标签回填');
         }
         
         await fillDescriptions(parsedResult.short_description, parsedResult.long_description);
-        console.log('标题、标签和描述已成功回填');
+        console.log('标题和描述已成功回填');
         
         showNotification('成功', 'AI 内容生成并回填成功');
       } else {
@@ -1512,28 +1719,108 @@ function showNotification(title, message) {
 
 // 添加悬浮按钮
 function addFloatingButton() {
+  console.log('开始添加悬浮按钮');
+  
   const container = document.createElement('div');
+  container.id = 'ai-generate-button-container';
   container.style.cssText = `
     position: fixed;
     bottom: 40px;
     right: 40px;
-    z-index: 9999;
+    z-index: 99999;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
   `;
+
+  // 物流方式选择框
+  const logisticsContainer = document.createElement('div');
+  logisticsContainer.style.cssText = `
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  `;
+
+  const logisticsLabel = document.createElement('label');
+  logisticsLabel.textContent = '物流方式:';
+  logisticsLabel.style.cssText = `
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  `;
+
+  const logisticsSelect = document.createElement('select');
+  logisticsSelect.id = 'ai-logistics-select';
+  logisticsSelect.style.cssText = `
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  `;
+
+  // 添加物流方式选项
+  const logisticsOptions = [
+    { value: 'extra_small', label: 'extra small' },
+    { value: 'small', label: 'small' },
+    { value: 'budget', label: 'budget' },
+    { value: 'premium_small', label: 'Premium Small' },
+    { value: 'premium_big', label: 'Premium Big' },
+    { value: 'big', label: 'Big' }
+  ];
+
+  logisticsOptions.forEach(option => {
+    const opt = document.createElement('option');
+    opt.value = option.value;
+    opt.textContent = option.label;
+    if (option.value === 'extra_small') {
+      opt.selected = true;
+    }
+    logisticsSelect.appendChild(opt);
+  });
+
+  // 保存物流方式到本地存储
+  logisticsSelect.addEventListener('change', async (e) => {
+    const selectedLogistics = e.target.value;
+    try {
+      chrome.storage.local.set({ qwenLogistics: selectedLogistics });
+      console.log('物流方式已更新:', selectedLogistics);
+    } catch (error) {
+      console.error('保存物流方式失败:', error);
+    }
+  });
+
+  // 加载已保存的物流方式
+  chrome.storage.local.get(['qwenLogistics'], (result) => {
+    if (result.qwenLogistics) {
+      logisticsSelect.value = result.qwenLogistics;
+    }
+  });
+
+  logisticsContainer.appendChild(logisticsLabel);
+  logisticsContainer.appendChild(logisticsSelect);
 
   // AI 生成按钮
   const aiButton = document.createElement('button');
-  aiButton.textContent = 'AI 生成';
+  aiButton.id = 'ai-generate-button';
+  aiButton.textContent = 'AI 生成标题';
   aiButton.style.cssText = `
-    padding: 12px 20px;
+    padding: 14px 24px;
     background-color: #1890ff;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
     transition: all 0.3s ease;
-    width: 150px;
+    width: 100%;
   `;
 
   // 添加事件监听器 - 触发内容生成
@@ -1542,16 +1829,27 @@ function addFloatingButton() {
   // 添加悬停效果
   aiButton.addEventListener('mouseenter', () => {
     aiButton.style.transform = 'translateY(-2px)';
+    aiButton.style.boxShadow = '0 4px 12px rgba(24, 144, 255, 0.4)';
   });
   
   aiButton.addEventListener('mouseleave', () => {
     aiButton.style.transform = 'translateY(0)';
+    aiButton.style.boxShadow = '0 2px 8px rgba(24, 144, 255, 0.3)';
   });
 
   // 添加到容器
+  container.appendChild(logisticsContainer);
   container.appendChild(aiButton);
 
-  document.body.appendChild(container);
+  // 添加到页面
+  try {
+    document.body.appendChild(container);
+    console.log('悬浮按钮已成功添加到页面');
+    console.log('按钮位置:', container.style.bottom, container.style.right);
+    console.log('按钮可见性:', container.style.display);
+  } catch (error) {
+    console.error('添加悬浮按钮失败:', error);
+  }
 }
 
 // 回车触发生成（优化版，避免干扰其他功能）

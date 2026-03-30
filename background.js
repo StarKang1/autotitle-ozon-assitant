@@ -45,49 +45,68 @@ async function handleQwenAICall(prompt) {
     
     console.log('调用 Qwen AI API:', apiUrl);
     
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: 'qwen-plus',
-        messages: [
-          {
-            role: 'system',
-            content: '你是一个专业的 Ozon 产品优化助手，负责生成高质量的俄语产品标题和标签。'
-          },
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.7
-      })
-    });
+    // 设置请求超时
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
     
-    console.log('API 调用响应状态:', response.status, response.statusText);
-    
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(`API 调用失败: ${response.statusText} - ${errorData.error?.message || ''}`);
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        signal: controller.signal,
+        body: JSON.stringify({
+          model: 'qwen-turbo', // 使用更轻量的模型，响应速度更快
+          messages: [
+            {
+              role: 'system',
+              content: '你是一个专业的 Ozon 产品优化助手，负责快速生成高质量的俄语产品标题和标签。'
+            },
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          max_tokens: 400, // 进一步减少生成的token数量，提高速度
+          temperature: 0.3, // 进一步降低温度，提高生成速度
+          top_p: 0.8, // 调整top_p，提高生成速度
+          stream: false, // 暂时关闭流式输出，减少复杂度
+          presence_penalty: 0, // 减少重复内容的惩罚，提高速度
+          frequency_penalty: 0 // 减少重复内容的惩罚，提高速度
+        })
+      });
+      
+      clearTimeout(timeoutId);
+      
+      console.log('API 调用响应状态:', response.status, response.statusText);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(`API 调用失败: ${response.statusText} - ${errorData.error?.message || ''}`);
+      }
+      
+      const data = await response.json();
+      console.log('Qwen AI API 响应:', data);
+      
+      // 解析 AI 响应
+      if (!data.choices || data.choices.length === 0) {
+        throw new Error('AI 响应格式错误，未找到 choices 字段');
+      }
+      
+      const aiResponse = data.choices[0].message.content;
+      console.log('AI 生成的内容:', aiResponse);
+      
+      // 返回原始 AI 响应，由 content script 统一解析，避免格式不一致
+      return aiResponse;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        throw new Error('API 调用超时，请检查网络连接');
+      }
+      throw error;
     }
-    
-    const data = await response.json();
-    console.log('Qwen AI API 响应:', data);
-    
-    // 解析 AI 响应
-    if (!data.choices || data.choices.length === 0) {
-      throw new Error('AI 响应格式错误，未找到 choices 字段');
-    }
-    
-    const aiResponse = data.choices[0].message.content;
-    console.log('AI 生成的内容:', aiResponse);
-    
-    // 返回原始 AI 响应，由 content script 统一解析，避免格式不一致
-    return aiResponse;
   } catch (error) {
     console.error('Qwen AI 调用错误:', error);
     throw error;
